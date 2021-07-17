@@ -1,6 +1,6 @@
 # RuntimeX
 Embed power in your websites.
-[Visit our website](https://RuntimeX.martiaforoud.repl.co) for more info.
+[Visit our website](https://RuntimeX.martiaforoud.repl.co) for more info. You can also [Visit the github pages website](https://minecraftpublisher.github.io/RuntimeX/).
 
 RuntimeX - Embed power in your websites.
 
