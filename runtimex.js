@@ -45,9 +45,9 @@ const RuntimeX = (function (obj) {
 	}
 })
 
-RunetimeX.listRunner = (function () {
+RuntimeX.listRunner = (function () {
 	RuntimeX.list.forEach(function (obj) {
-		if (obj.tagName == "SCRIPT" && obj.type = "text/runtime") {
+		if ((obj.tagName == "SCRIPT") && (obj.type = "text/runtime")) {
 			// Check if the RuntimeX element is executed or no.
 			if(obj.getAttribute("run") == "true") {
 				// The element has been ran before, just execute the RUNTIME function.
@@ -74,7 +74,7 @@ observeDOM(document.body, function (m) {
 		RuntimeX(node)
 	})
 
-	removedNodes.forEach(node) => {
+	removedNodes.forEach(node => {
 		// Check if RuntimeX scripts contains the removed element.
 		if(RuntimeX.list.indexOf(node) > -1) {
 			// The list contains the removed element, remove the element from the list.
