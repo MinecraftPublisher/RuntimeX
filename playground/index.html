@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<title>RuntimeX</title>
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+	<link href="/style.css" rel="stylesheet">
+	<script src="//runtimex.martiaforoud.repl.co/runtimex.js">
+
+	</script>
+</head>
+
+<body id="nescss">
+	<header :class="{ sticky: scrollPos > 50 }">
+		<div class="container">
+			<div class="nav-brand">
+				<a href="https://runtimex.martiaforoud.repl.co/">
+					<h1><i class="snes-jp-logo brand-logo"></i>RuntimeX</h1>
+            </a>
+            <p>Embed power in your browser.</p>
+          </div>
+
+          <div class="social-buttons">
+            <p>Navigation</p>
+            <div class="share">
+              <a href="/">Home</a>
+              <a href="/download">Download</a>
+              <a href="/playground">Playground</a>
+            </div>
+          </div>
+        </div>
+      </header>
+	<div class="container">
+		<div class="main">
+			<p>
+				<h3>What is this place?</h3>
+				You can play around with RuntimeX here! Error correction, syntax errors and other stuff will be logged immediately! We are working on the Intellisense for the monacco editor, but for now let's just settle with the normal textatrea, shall we?<br><br>
+				<textarea style="height: 350px;" class="nes-textarea" placeholder="Type in some RuntimeX to get started..."># Welcome to RuntimeX!
+&#35; We've prepared some code for you to begin with!
+&#35; Don't worry, RuntimeX syntax isn't that hard!
+
+:MAIN
+ECHO "This function runs only once!"
+:MAIN END
+
+:RUNTIME
+ECHO "This runs every second!"
+:RUNTIME END</textarea>
+			</p>
+			</div>
+		</div>
+		<style>
+
+			pre, code {
+				width: 100%;
+				white-space: pre-wrap;
+			}
+
+			.container {
+				width: 100%;
+				height: 100%;
+			}
+
+		</style>
+	</body>
+</html>

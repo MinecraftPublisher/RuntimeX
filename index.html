@@ -4,32 +4,43 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 	<title>RuntimeX</title>
-	<link rel="stylesheet" href="/style.css">
-	<script src="//runtimex.martiaforoud.repl.co/runtimex.js">
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+	<link href="/style.css" rel="stylesheet">
+<script src="//runtimex.martiaforoud.repl.co/runtimex.js">
 
 	</script>
 </head>
 
-<body>
-	<div class="article">
-		<ul class="navbar">
-			<a href="/"><li class="navbar-content">Home</li></a>
-			<a href="/download.html"><li class="navbar-content">Download</li></a>
-			<a href="/playground.html"><li class="navbar-content">Playground</li></a>
-		</ul>
+<body id="nescss">
+	<header :class="{ sticky: scrollPos > 50 }">
+		<div class="container">
+			<div class="nav-brand">
+				<a href="https://runtimex.martiaforoud.repl.co/">
+					<h1><i class="snes-jp-logo brand-logo"></i>RuntimeX</h1>
+            </a>
+            <p>Embed power in your browser.</p>
+          </div>
 
+          <div class="social-buttons">
+            <p>Navigation</p>
+            <div class="share">
+              <a href="/">Home</a>
+              <a href="/download">Download</a>
+              <a href="/playground">Playground</a>
+            </div>
+          </div>
+        </div>
+      </header>
+	<div class="container">
 		<div class="main">
-			<h1>RuntimeX - Embed power in your websites.</h1>
-			<hr>
 			<p>
 				<h3>What's RuntimeX?</h3>
 				RuntimeX is a vanilla javascript library that allows you to write custom code in script tags.
 				<h3>How do i use it?</h3>
-				You can import RuntimeX by adding this piece of HTML code, just above the <code>&lt;/body></code> tag:
-      <pre><code>&lt;script src="//runtimex.martiaforoud.repl.co/runtimex.js">&lt;/script></code></pre>
-      And then you can write RuntimeX code in your document like this:
-      <pre><code>&lt;script type="text/runtime">
+				First, head over to the Download page to get the latest version of RuntimeX. Then, you can write RuntimeX in your code like this:
+				<pre class="nes-textarea"><code>&lt;script type="text/runtime">
   START
   :MAIN
   ECHO "Hello RuntimeX!"
@@ -43,8 +54,21 @@
   SET "test2" "This is another variable!"
   :RUNTIME END
 &lt;/script></code></pre>
-    </p>
-  </div>
-</div>
-</body>
+				</p>
+			</div>
+		</div>
+		<style>
+
+			pre, code {
+				width: 100%;
+				white-space: pre-wrap;
+			}
+
+			.container {
+				width: 100%;
+				height: 100%;
+			}
+
+		</style>
+	</body>
 </html>

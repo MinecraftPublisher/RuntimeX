@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+	<title>RuntimeX</title>
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
+	<link href="/style.css" rel="stylesheet">
+	<script src="//runtimex.martiaforoud.repl.co/runtimex.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+	</script>
+</head>
+
+<body id="nescss">
+	<header :class="{ sticky: scrollPos > 50 }">
+		<div class="container">
+			<div class="nav-brand">
+				<a href="https://runtimex.martiaforoud.repl.co/">
+					<h1><i class="snes-jp-logo brand-logo"></i>RuntimeX</h1>
+            </a>
+            <p>Embed power in your browser.</p>
+          </div>
+
+          <div class="social-buttons">
+            <p>Navigation</p>
+            <div class="share">
+              <a href="/">Home</a>
+              <a href="/download">Download</a>
+              <a href="/playground">Playground</a>
+            </div>
+          </div>
+        </div>
+      </header>
+	<div class="container">
+		<div class="main">
+			<p>
+				You need to put one of these lines of code, just above your <span class="nes-text is-primary">&lt;/body></span> tag.<br>
+				<br>
+				Official import:<br>
+				<pre class="nes-textarea"><code>&lt;script src="//runtimex.martiaforoud.repl.co/runtimex.js">&lt;/script></code></pre><br>
+				CDN import:<br>
+				<pre class="nes-textarea"><code>Check back later!</code></pre><br>
+				Local import:<br>
+				Download the RuntimeX executable script <a style="color: blue;" onclick='httpGetAsync("//runtimex.martiaforoud.repl.co/runtimex.js", (body) => {      var dataBlob = new Blob([body]);      saveAs(dataBlob, "runtimex.js");     })'>here</a><br>
+				Then, import it using this:<br>
+				<pre class="nes-textarea"><code>&lt;script src="/path-to-runtimex/runtimex.js">&lt;/script></code></pre><br>
+			</p>
+			</div>
+		</div>
+		<style>
+
+			pre, code {
+				width: 100%;
+				white-space: pre-wrap;
+			}
+
+			.container {
+				width: 100%;
+				height: 100%;
+			}
+
+		</style>
+		<script>
+			function httpGetAsync(theUrl, callback)
+			{
+    			var xmlHttp = new XMLHttpRequest();
+    			xmlHttp.onreadystatechange = function() { 
+        		if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+        			callback(xmlHttp.responseText);
+    			}
+    			xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+    			xmlHttp.send(null);
+			}
+		</script>
+	</body>
+</html>

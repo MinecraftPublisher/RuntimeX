@@ -48,12 +48,18 @@ const RuntimeX = (function (obj) {
 RuntimeX.listRunner = (function () {
 	RuntimeX.list.forEach(function (obj) {
 		if ((obj.tagName == "SCRIPT") && (obj.type = "text/runtime")) {
-			// Check if the RuntimeX element is executed or no.
-			if(obj.getAttribute("run") == "true") {
-				// The element has been ran before, just execute the RUNTIME function.
+			// Check if the object's RuntimeX is compiled or no
+			if (obj.getAttribute("compiled")) {
+				// Check if the RuntimeX element is executed or no.
+				if (obj.getAttribute("run") == "true") {
+					// The element has been ran before, just execute the RUNTIME function.
+				}
+				else {
+					// The element hasn't been ran before, run the MAIN function.
+				}
 			}
 			else {
-				// The element hasn't been ran, run the MAIN function.
+				
 			}
 		}
 		else {
@@ -76,7 +82,7 @@ observeDOM(document.body, function (m) {
 
 	removedNodes.forEach(node => {
 		// Check if RuntimeX scripts contains the removed element.
-		if(RuntimeX.list.indexOf(node) > -1) {
+		if (RuntimeX.list.indexOf(node) > -1) {
 			// The list contains the removed element, remove the element from the list.
 			RuntimeX.list.splice(RuntimeX.list.indexOf(node), 1)
 		}
