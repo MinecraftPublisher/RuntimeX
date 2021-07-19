@@ -8,7 +8,7 @@
 	<title>RuntimeX</title>
 	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
 	<link href="/style.css" rel="stylesheet">
-<script src="//runtimex.martiaforoud.repl.co/runtimex.js">
+	<script src="//runtimex.martiaforoud.repl.co/runtimex.js">
 
 	</script>
 </head>
@@ -36,25 +36,20 @@
 	<div class="container">
 		<div class="main">
 			<p>
-				<h3>What's RuntimeX?</h3>
-				RuntimeX is a vanilla javascript library that allows you to write custom code in script tags.
-				<h3>How do i use it?</h3>
-				First, head over to the Download page to get the latest version of RuntimeX. Then, you can write RuntimeX in your code like this:
-				<pre class="nes-textarea"><code>&lt;script type="text/runtime">
-  START
-  :MAIN
-  ECHO "Hello RuntimeX!"
-  SET "test" "This is a variable!"
-  ECHO test
-  :MAIN END
+				<h3>What is this place?</h3>
+				You can play around with RuntimeX here! Error correction, syntax errors and other stuff will be logged immediately! We are working on the Intellisense for the monacco editor, but for now let's just settle with the normal textatrea, shall we?<br><br>
+				<textarea style="height: 350px;" class="nes-textarea" placeholder="Type in some RuntimeX to get started..."># Welcome to RuntimeX!
+&#35; We've prepared some code for you to begin with!
+&#35; Don't worry, RuntimeX syntax isn't that hard!
 
-  :RUNTIME
-  ECHO "This code runs every second!"
-  ECHO "Also, you don't need to make everything uppercase!"
-  SET "test2" "This is another variable!"
-  :RUNTIME END
-&lt;/script></code></pre>
-				</p>
+:MAIN
+ECHO "This function runs only once!"
+:MAIN END
+
+:RUNTIME
+ECHO "This runs every second!"
+:RUNTIME END</textarea>
+			</p>
 			</div>
 		</div>
 		<style>
