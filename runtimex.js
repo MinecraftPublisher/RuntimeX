@@ -7,6 +7,31 @@
  * 
  */
 
+// RuntimeX's startup function\
+// Adds NES.CSS, this will be removed in the production build.
+document.innerHTML += `
+	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet"/>`
+
+// Add the console.runlog dialog
+document.innerHTML += `<!-- Runtimex's dialog -->
+	<dialog class="nes-dialog" id="runtimex-dialog">
+    <form method="dialog">
+      <p class="run-title"></p>
+      <p class="run-text"></p>
+      <menu class="dialog-menu">
+        <button class="nes-btn is-primary">OK</button>
+      </menu>
+    </form>
+  </dialog>
+</section>`
+
+// Adds console.runlog to make sure they are shown as a dialog.
+console.runlog = (function (text) {
+	document.querySelector("run-title").innerText = "RuntimeX error"
+	document.querySelector("run-text").innerText = text
+	document.querySelector("runtimex-dialog").showModal()
+})
+
 // Creates a DOM observer callback to monitor the body element and detect added script tags.
 const observeDOM = (function () {
 	var MutationObserver = window.MutationObserver || window.WebKitMutationObserver
@@ -49,7 +74,7 @@ RuntimeX.listRunner = (function () {
 	RuntimeX.list.forEach(function (obj) {
 		if ((obj.tagName == "SCRIPT") && (obj.type = "text/runtime")) {
 			// Check if the object's RuntimeX is compiled or no
-			if (obj.getAttribute("compiled")) {
+			if (obj.getAttribute("compiled") && obj.getAttribute("error") == 0) {
 				// Check if the RuntimeX element is executed or no.
 				if (obj.getAttribute("run") == "true") {
 					// The element has been ran before, just execute the RUNTIME function.
@@ -59,7 +84,12 @@ RuntimeX.listRunner = (function () {
 				}
 			}
 			else {
-				
+				if (obj.getAttribute("error") == "0") {
+					// The element isn't compiled, compile it first, then proceed.
+				}
+				else {
+					// The element has an error, abort.
+				}
 			}
 		}
 		else {
@@ -70,9 +100,19 @@ RuntimeX.listRunner = (function () {
 	})
 })
 
+RuntimeX.compile = (function (obj) => {
+	if ((obj.tagName == "SCRIPT") && (obj.type = "text/runtime")) {
+
+	}
+	else {
+		obj.setAttribute("error", "1")
+		console.log("Error: Element compilation failed, element is not a script with type \"text/runtime\".")
+	}
+})
+
 // Observe the document body and look for Nodes added to the document body. If there are removed nodes, also remove them from the RuntimeX scripts.
 observeDOM(document.body, function (m) {
-	var addedNodes = [], removedNodes = [];
+	var addedNodes = [], removedNodes = []
 	m.forEach(record => record.addedNodes.length & addedNodes.push(...record.addedNodes))
 	m.forEach(record => record.removedNodes.length & removedNodes.push(...record.removedNodes))
 
