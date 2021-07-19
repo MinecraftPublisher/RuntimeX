@@ -7,8 +7,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 	<title>RuntimeX</title>
 	<link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
-	<link href="/style.css" rel="stylesheet">
-	<script src="//runtimex.martiaforoud.repl.co/runtimex.js"></script>
+	<link href="../style.css" rel="stylesheet">
+	<script src="../runtimex.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 
 	</script>
@@ -27,9 +27,9 @@
           <div class="social-buttons">
             <p>Navigation</p>
             <div class="share">
-              <a href="/">Home</a>
-              <a href="/download">Download</a>
-              <a href="/playground">Playground</a>
+              <a href="../">Home</a>
+              <a href="../download">Download</a>
+              <a href="../playground">Playground</a>
             </div>
           </div>
         </div>
@@ -39,12 +39,13 @@
 			<p>
 				You need to put one of these lines of code, just above your <span class="nes-text is-primary">&lt;/body></span> tag.<br>
 				<br>
-				Official import:<br>
+				Official imports:<br>
 				<pre class="nes-textarea"><code>&lt;script src="//runtimex.martiaforoud.repl.co/runtimex.js">&lt;/script></code></pre><br>
+				<pre class="nes-textarea"><code>&lt;script src="//minecraftpublisher.github.io/RuntimeX/runtimex.js">&lt;/script></code></pre><br>
 				CDN import:<br>
 				<pre class="nes-textarea"><code>Check back later!</code></pre><br>
-				Local import:<br>
-				Download the RuntimeX executable script <a style="color: blue;" onclick='httpGetAsync("//runtimex.martiaforoud.repl.co/runtimex.js", (body) => {      var dataBlob = new Blob([body]);      saveAs(dataBlob, "runtimex.js");     })'>here</a><br>
+				Local import:<br>	
+				Download the RuntimeX executable script <a style="color: blue;" onclick='httpGetAsync("//minecraftpublisher.github.io/RuntimeX/runtimex.js", (body) => {      var dataBlob = new Blob([body]);      saveAs(dataBlob, "runtimex.js");     })'>here</a><br>
 				Then, import it using this:<br>
 				<pre class="nes-textarea"><code>&lt;script src="/path-to-runtimex/runtimex.js">&lt;/script></code></pre><br>
 			</p>
