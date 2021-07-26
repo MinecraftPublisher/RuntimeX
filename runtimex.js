@@ -100,9 +100,32 @@ RuntimeX.listRunner = (function () {
 	})
 })
 
-RuntimeX.compile = (function (obj) => {
-	if ((obj.tagName == "SCRIPT") && (obj.type = "text/runtime")) {
+RuntimeX.tools = (function(data) {
+	RuntimeX.tools.index = 0
+	RuntimeX.tools.data = data
+})
 
+RuntimeX.tools.peek = (function() {
+	return RuntimeX.tools.data[RuntimeX.tools.index++]
+})
+
+RuntimeX.tools.get = (function() {
+	return RuntimeX.tools.data[RuntimeX.tools.index]
+})
+
+RuntimeX.tools.readToWhitespace = (function() {
+	var result = ""
+
+	while(RuntimeX.tools.get().match(/\s/g) == null) {
+		result += RuntimeX.tools.peek()
+	}
+
+	return result
+})
+
+RuntimeX.compile = (function (obj) {
+	if ((obj.tagName == "SCRIPT") && (obj.type = "text/runtime")) {
+		
 	}
 	else {
 		obj.setAttribute("error", "1")
