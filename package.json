@@ -1,0 +1,11 @@
+{
+  "name": "runtimex",
+  "version": "1.0.0",
+  "description": "RuntimeX is a non-compiled, runtime programming languaged based on BASH and BASIC. RuntimeX's interpreter/transpiler is made in javascript.",
+  "keywords": [],
+  "main": "index.html",
+  "dependencies": {},
+  "scripts": {
+    "build": "echo \"Static sites don't have builds!\""
+  }
+}

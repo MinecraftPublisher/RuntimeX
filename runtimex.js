@@ -136,12 +136,17 @@ RuntimeX.compile = function (obj) {
   ) {
     // Run the function as a string to actually work with it
     if (obj.innerText.length > 0) {
+      // Object does contain innerText value, send it as a string.
+      RuntimeX.compile(obj.innerText);
     } else if (obj.getAttribute("src").length > 0) {
       // Retrieve the data and then run the function as a string
+      // Left for after production
     } else {
       console.log("Error: Element does not contain any code.");
     }
   } else if (typeof obj === "string") {
+    // Object is a string, so we can finally work with it.
+    // TODO: Figure out a way to make a tokenizer...
   } else {
     obj.setAttribute("error", "1");
     console.log(
